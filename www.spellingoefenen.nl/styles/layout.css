@@ -1,0 +1,1084 @@
+/* *** Master definitions (kopieren naar wysiwyg stylesheet cms.css) *** */
+*
+{
+	margin: 0px;
+	padding: 0px;
+	
+	vertical-align: top;
+	border-style: solid;
+	border-width: 0px;
+}
+
+/* Placeholder color (in inputs) */
+::-webkit-input-placeholder { color: #BBBBBB; }
+:-moz-placeholder { color: #BBBBBB; opacity:  1; }
+::-moz-placeholder { color: #BBBBBB; opacity:  1; }
+:-ms-input-placeholder { color: #BBBBBB; }
+
+/* checkboxes en radio tekst ietsje omhoog schuiven */
+input[type=checkbox], input[type=radio] 
+{
+	vertical-align: middle;
+	position: relative;
+	bottom: 2px;
+}
+
+
+
+/* *** Global tags *** */
+body, html
+{
+	width: 100%;
+	height: 100%;
+}
+
+html
+{
+
+}
+
+body
+{
+	background-color: #dfdfdf;
+	
+	font-family: 'Source Sans Pro', sans-serif;
+	
+	font-size: 17px;
+	line-height: 24px;
+}
+
+table
+{
+
+}
+
+td
+{
+
+}
+
+h1
+{
+	font-family: 'Gloria Hallelujah', cursive;
+	
+	padding-bottom: 12px;
+
+	font-size: 28px;
+	font-weight: normal;
+	line-height: 36px;
+}
+
+h2
+{
+	padding-bottom: 8px;
+
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 28px;	
+}
+
+img 
+{
+
+}
+
+a, a:visited
+{
+	color: #000000;
+}
+
+a:active, a:focus
+{
+	outline: none;
+}
+
+.website_game:hover, .website_game:active
+{
+	color: #FFFFFF;
+}
+
+hr
+{
+	height: 1px;
+
+	border-width: 1px;
+	
+	border-left: 0px;
+	border-right: 0px;
+	border-top: 0px;
+}
+
+label
+{
+	display: block;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+/* *** post-it achtige box *** */
+.box
+{
+	display: table;
+	
+	clear: left;
+	background-color: #ffff99; 
+}
+
+/* *** Omvangerijkere box voor bijvoorbeeld een contactformulier (mag eruit springen!) *** */
+.area
+{
+	display: inline-block;
+}
+
+.area a, .area a:visited, .area a:active, .area a:hover, .area h1, .area h2
+{
+	
+}
+.division
+{
+	height: 80px;
+	margin-top: 80px;
+}
+
+.division span
+{
+	position: absolute;
+	left: 0px;
+	border-top: 1px solid #000000;
+	color: #000000;
+	font-size: 11px;
+	font-weight: bold;
+	text-indent: 5px;
+	width: 100%;
+	opacity: 0.25;
+}
+
+.vinkje
+{
+	background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/icons/vinkje.html'); background-repeat: no-repeat; background-position: left top;
+	
+	font-weight: bold;
+	
+	padding-left: 36px;
+	
+	color: #009900;
+}
+
+/* *** Cookie melding *** */
+div#WGibcrhrks{z-index: 99999999; min-height: 25px; line-height: 16px;top: 0px; background-color: #000000; border-top: 0px solid #000; opacity:0.78; filter:alpha(opacity=55);font-size: 12px;color: #f9f7f7;font-weight: normal;font-family:Arial,Helvetica,FreeSans,"Liberation Sans","Nimbus Sans L",sans-serif;position: fixed; width: calc(100% - 10px); padding: 5px; text-align: center; display: table-cell; vertical-align: top;}
+div#WGibcrhrks a:visited,div#WGibcrhrks a:active,div#WGibcrhrks a:link{text-decoration:underline; font-size: 12px; color:#51C1DD; font-weight: bold; font-family:Arial,Helvetica,FreeSans,"Liberation Sans","Nimbus Sans L",sans-serif; vertical-align: top;}
+div#WGibcrhrks a#WGibcrhrksbutton:visited,div#WGibcrhrks a#WGibcrhrksbutton:active,div#WGibcrhrks a#WGibcrhrksbutton:link{text-decoration:none; font-size: 12px; color:#FDCD0D; font-weight: bold; font-family:Arial,Helvetica,FreeSans,"Liberation Sans","Nimbus Sans L",sans-serif; text-decoration:underline; vertical-align: top; margin: 0px 0px 0px 10px;}
+
+
+/* *** Header *** */
+.header
+{
+	background-color: #FFFFFF;
+	
+	height: 141px;
+	height: auto;	
+}
+
+.header_div, .leader_div, .main_div, .main_cols_table, .main_drieluik_table, .footer_div, .footer_div_taken
+{
+	width: 980px;
+	margin: 0px auto;
+}
+
+
+.verticalads_div
+{
+
+width: 1310px;
+margin: 0px auto;
+text-align: right;
+	
+}
+
+.footerads{
+display: none;
+}
+
+.logo
+{
+	display: block;
+	
+	background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/layout/logo.png'); background-repeat: no-repeat; background-position: left top;
+	
+	
+	width: 405px;
+	height: 141px;
+	margin: 0px auto;
+}
+	
+.menu
+{
+	
+	margin-top: 0px;
+	padding-top: 0px;
+	padding-bottom: 10px;
+	
+	text-align: center;
+}
+/* *** /Header *** */
+
+
+/* *** Leader *** */
+.leader
+{
+	background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/layout/leader.jpg'); background-repeat: no-repeat; background-position: center top; background-size: cover;
+	background-color: #bc9337;
+}
+
+.leader_div
+{
+	text-align: center;	
+}
+
+
+.ads
+{
+	text-align: center;	
+	height:90px;
+	max-width:980px;
+	margin: 0px auto;
+}
+
+.verticalads
+{
+		
+}
+
+
+.leader_fullscreen, .leader_fullscreen:visited, .leader_fullscreen:active, .leader_fullscreen:hover
+{
+	display: none;
+}
+
+.leader_div iframe
+{
+	
+	
+margin-left: -6px;
+border-style: solid;
+border-width: 6px 6px 6px 6px;
+border-color: #FFF;		
+-webkit-box-shadow: 0px 0px 4px 0px rgba(2,2,2,2);
+-moz-box-shadow: 0px 0px 4px 0px rgba(2,2,2,2);
+-box-shadow: 0px 0px 4px 0px rgba(2,2,2,2);		
+
+
+}
+
+
+.linkads{
+	
+height: 90px;
+
+	}
+
+.linkads iframe{
+
+
+border-width: 0px 0px 0px 0px;
+border-color: #FFF;		
+-webkit-box-shadow: 0px 0px 0px 0px rgba(2,2,2,2);
+-moz-box-shadow: 0px 0px 0px 0px rgba(2,2,2,2);
+-box-shadow: 0px 0px 0px 0px rgba(2,2,2,2);			
+	
+	}
+
+.leader_ads iframe{
+
+margin-left: 0px;
+border-width: 0px 0px 0px 0px;
+border-color: #FFF;		
+-webkit-box-shadow: 0px 0px 0px 0px rgba(2,2,2,2);
+-moz-box-shadow: 0px 0px 0px 0px rgba(2,2,2,2);
+-box-shadow: 0px 0px 0px 0px rgba(2,2,2,2);			
+	
+	}
+
+
+.leader_title
+{
+	padding-top: 30px;
+	height: 57px;
+}
+
+
+.leader_games
+{
+	min-height: 300px;
+	font-size: 0;
+}
+
+.googleadresponsive
+{
+	
+width:290px;
+height:200px;
+
+	
+}
+
+.leader_game, .leader_game:visited
+{
+	display: inline-block;
+	
+	width: 290px;
+	height: 200px;
+	
+	margin-left: 55px;
+	margin-bottom: 30px;
+	
+	
+	-webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,1);
+	-moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,1);
+	box-shadow: 0px 0px 4px 0px rgba(0,0,0,1);		
+	
+	transition: box-shadow 250ms ease-in-out, margin-top 250ms ease-in-out;
+	
+}
+
+.leader_ads, .leader_ads:visited
+{
+	display: inline-block;
+	
+	width: 290px;
+	height: 200px;
+	
+	margin-left: 55px;
+	margin-bottom: 30px;
+	
+	
+	-webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+	-moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+	box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);		
+	
+	transition: box-shadow 250ms ease-in-out, margin-top 250ms ease-in-out;
+	
+}
+
+
+
+
+.leader_game:nth-child(3n - 2), .leader_ads:nth-child(3n - 2)
+{
+	margin-left: 0px;
+}
+
+.leader_game:active, .leader_game:hover
+{
+	margin-top: -5px;
+
+	-webkit-box-shadow: 0px 0px 14px 0px rgba(255,255,255,1);
+	-moz-box-shadow: 0px 0px 14px 0px rgba(255,255,255,1);
+	box-shadow: 0px 0px 14px 0px rgba(255,255,255,1);
+}
+
+
+.website_game, .website_game:visited
+{
+	display: block;
+	
+	min-height: 200px;
+	margin-bottom: 30px;
+	
+	text-decoration: none;	
+	text-align: justify;
+	
+	transition: color 250ms ease-in-out;
+}
+
+
+
+.website_game img
+{
+	float: left;
+	
+	width: 290px;
+	height: 200px;
+	
+	margin-right: 30px;
+
+	-webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,1);
+	-moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,1);
+	box-shadow: 0px 0px 4px 0px rgba(0,0,0,1);
+	
+	transition: box-shadow 250ms ease-in-out;	
+}
+
+.website_game:hover img, .website_game:active img
+{
+	-webkit-box-shadow: 0px 0px 14px 0px rgba(255,255,255,1);
+	-moz-box-shadow: 0px 0px 14px 0px rgba(255,255,255,1);
+	box-shadow: 0px 0px 14px 0px rgba(255,255,255,1);
+}
+
+
+.game_iframe
+{
+	display: block;
+
+	padding: 0px;
+	margin: 0px;
+
+	width: 100%; 
+	height: 500px;
+	
+	-webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,1);
+	-moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,1);
+	box-shadow: 0px 0px 4px 0px rgba(0,0,0,1);	
+}
+
+
+.leader_banner
+{
+	height: 120px;
+}
+
+/* *** /Leader *** */
+
+
+
+/* *** Banners *** */
+.banner_landscape a, .banner_landscape a:visited,
+.banner_block a, .banner_block a:visited
+{
+	display: inline-block;
+	width: 728px;
+	height: 90px;
+
+	-webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,1);
+	-moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,1);
+	box-shadow: 0px 0px 4px 0px rgba(0,0,0,1);
+	
+	transition: box-shadow 250ms ease-in-out;	
+}
+
+
+.banner_block a, .banner_block a:visited
+{
+	width: 290px;
+	height: 242px;	
+}
+
+.banner_landscape a:active, .banner_landscape a:hover,
+.banner_block a:active, .banner_block a:hover
+{
+	-webkit-box-shadow: 0px 0px 14px 0px rgba(255,255,255,1);
+	-moz-box-shadow: 0px 0px 14px 0px rgba(255,255,255,1);
+	box-shadow: 0px 0px 14px 0px rgba(255,255,255,1);
+}
+
+/* *** /Banners *** */
+
+
+/* *** Verschillende constructies van main deel (=onder menu/slideshow) van website *** */
+.main
+{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.content a
+{
+color:#64A003	
+}
+
+.main_div
+{	
+	min-height: 260px;
+}
+
+/* Brede content-kolom en smalle sidebar */
+.main_cols_table
+{
+	display: table;
+}
+
+.main_cols_tr
+{
+	display: table_row;
+}
+
+.main_col_content
+{
+	display: table-cell;
+
+	padding-right: 55px;
+	
+	text-align: justify;
+}
+
+.main_col_sidebar
+{
+	display: table-cell;
+		
+	width: 290px;
+	max-width: 290px;
+		
+	padding-right: 0px;
+	padding-top: 0px;
+}
+
+
+
+/* drieluik (3 hokjes naast elkaar, te combineren met full_span) */
+.main_drieluik_table
+{
+	display: table;	
+	margin-bottom: 40px;
+}
+
+.main_drieluik_tr
+{
+	display: table-row;
+}
+
+.main_drieluik_td
+{
+	display: table-cell;
+
+	width: 290px;
+	padding-left: 55px;
+
+	text-align: justify;	
+}
+
+.main_drieluik_td:first-child
+{
+
+	padding-left: 0px;
+}
+
+
+
+
+
+/* *** Footer *** */
+.footer
+{
+	
+background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/layout/leaderzzz.png'); background-repeat: repeat; background-position:bottom;	
+
+}
+
+.footer_div
+{	
+	padding-top: 220px;
+	padding-bottom: 3px;
+	
+	font-size: 13px;
+	line-height: 20px;
+	
+}
+
+.footer_div_taken
+{	
+	padding-top: 30px;
+	padding-bottom: 3px;
+	maring-top:0px;
+	
+	font-size: 13px;
+	line-height: 20px;
+	
+}
+
+
+
+.footer_gamedesign, .footer_gamedesign:visited
+{
+	background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/content/gamedesign.png'); background-repeat: no-repeat; background-position: left top;
+	display: inline-block;
+	
+	width: 165px;
+	height: 20px;
+	
+	float: right;
+	opacity: 0.5;
+}
+
+.footer_gamedesign:active, .footer_gamedesign:hover
+{
+	opacity: 0.8;
+}
+
+.footer a:active, .footer a:hover
+{
+	color: #3c2c08;
+}
+/* *** /Footer *** */
+
+
+/* *** YouTube filmpje *** */
+.youtube_iframe
+{
+	
+	background-color: #333333;
+	
+	width: 470px; 
+	height: 300px; 	
+}
+
+.youtube
+{
+
+}
+
+.youtube_iframe
+{
+	width: 100%;
+	height: 325px;
+}
+/* *** /YouTube filmpje *** */
+
+
+
+/* *** Form *** */
+.captcha
+{
+	background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/layout/bg_dark.png'); 
+	
+	display: inline-block;
+	
+	width: 377px;
+	
+	padding: 10px;
+	padding-right: 0px;
+}
+
+.area .captcha
+{
+	background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/layout/bg_light.png'); 
+}
+
+.captcha_div
+{
+	display: table-cell;
+	vertical-align: middle;
+	padding-right: 10px;
+}
+
+.form_input_captcha
+{
+	
+	text-align: center;
+	
+	line-height: 25px;
+	
+	border-width: 1px;
+	
+	font-family: 'Source Sans Pro', sans-serif;
+	
+	font-size: 16px;
+}
+
+.form_input, .form_textarea, .form_select
+{
+	font-family: 'Source Sans Pro', sans-serif;
+	
+	font-size: 18px;
+	
+	padding: 10px;	
+	margin-bottom: 10px;
+	
+	border: 1px solid #000000;
+	border-radius: 4px;
+}
+
+.form_input, .form_textarea
+{
+	
+width: 500px; 
+
+}
+
+.contactformulier{ width: 600px;}
+
+.form_textarea
+{
+	height: 100px;
+}
+
+.form_input_medium
+{
+	
+}
+
+.form_input_kort
+{
+	
+}
+
+.form_input_mini
+{
+	
+}
+
+.form_select
+{
+	padding: 4px;	
+}
+
+.ster
+{
+	
+}
+
+.button, .button:visited, 
+.button_selected, .button_selected:visited,
+.button_alt, .button_alt:visited,
+.button_alt_selected, .button_alt_selected:visited,
+.button_disabled
+{
+	background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/layout/button.png'); 
+	
+	background-repeat: no-repeat;
+  	background-size: cover;
+	
+	width: 117px;
+	height: 42px;
+	
+	display: inline-block;
+
+	
+	margin-bottom: 5px;
+
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size: 20px;
+	line-height: 36px;
+	
+	text-align: center;
+	text-decoration: none;
+	text-transform: lowercase;
+	text-shadow: 0px -1px 2px rgba(0, 0, 0, 0.85);
+	
+	
+	 
+	color: #FFFFFF;
+}
+
+.button:hover, .button:active,
+.button_alt:hover, .button_alt:active
+{
+	background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/layout/button3.png'); 
+
+	color: #FFFFFF;	
+	line-height: 36px;	
+}
+
+.button_alt, .button_alt:visited
+{
+	background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/layout/button_alt.png');
+	width: 195px;
+}
+
+.button_alt:hover, .button_alt:active
+{
+	background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/layout/button_alt3.png');
+}
+
+.button_selected, .button_selected:visited, .button_selected:hover, .button_selected:active
+{
+	background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/layout/button2.png'); 
+}
+
+.button_alt_selected, .button_alt_selected:visited, .button_alt_selected:hover, .button_alt_selected:active
+{
+	background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/layout/button_alt2.png'); 
+	width: 195px;	
+}
+
+.button_disabled
+{
+	opacity: 0.5;
+}
+
+.x_button, .x_button:visited
+{
+	display: inline-block;
+	
+	width: 30px;
+	height: 30px;
+	
+	line-height: 30px;
+	text-align: center;
+
+	text-decoration: none;
+	
+	float: right; 
+	
+	margin-left: 20px;
+}
+
+.x_button:hover, .x_button:active
+{
+	background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/layout/bg_light.png'); 
+}
+/* *** /Form *** */
+
+
+/* *** Div Popup *** */
+#page_screen
+{
+	background-color:#000000;
+	filter:alpha(opacity=80);
+	opacity: 0.8;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	display:none;
+	cursor: default;
+	z-index: 1000;
+}
+
+#popup_div
+{
+	position: fixed;
+	display: table;
+	
+	top:0px;
+	left:0px;
+
+	z-index: 1001;
+
+	width: 100%;
+	height: 100%;
+	
+	padding-top: 0px;
+}
+
+#popup_div_td
+{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#popup_div_inner
+{
+	width: 300px;
+	height: 200px;
+}
+
+#popup_div_titel
+{
+	padding-bottom: 12px;
+}
+
+#popup_div_content
+{
+	height: 140px;
+	overflow: auto;
+}
+
+#popup_div_input
+{
+	margin-top: 10px;
+}
+
+#popup_div_input input
+{
+	width: 200px;
+}
+/* *** /Div Popup *** */
+
+
+/* *** Preloader *** */
+#preloader
+{
+	background-image: url('../../afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/layout/bg_dark.png');
+
+	display: none;
+	position: fixed;
+	z-index: 10000;		
+	cursor: default;
+		
+	top: 0px;
+	left: 0px;
+	
+	width: 100%;
+	height: 100%;
+}
+
+#preloader_td
+{
+	display: table-cell;
+	
+	text-align: center;
+	vertical-align: middle !important;
+
+	width: 100%;
+	height: 100%;
+}
+
+#preloader_img
+{
+	display: inline-block;
+	
+	width: 64px;
+	height: 64px;
+}
+
+#preloader_text
+{
+	margin-top: 10px;
+	opacity: 0;
+}
+
+#preloader_subtext
+{
+	display: none;
+	opacity: 0;
+}
+/* *** /Preloader *** */
+
+
+/* *** Div Popup *** */
+#page_screen
+{
+	background-color:#000000;
+	filter:alpha(opacity=80);
+	opacity: 0.8;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	display:none;
+	cursor: default;
+	z-index: 1000;
+}
+
+#popup_div
+{	
+	position: fixed;
+	display: table;
+	
+	top:0px;
+	left:0px;
+
+	z-index: 1001;
+
+	width: 100%;
+	height: 100%;
+	
+	padding-top: 0px;
+}
+
+#popup_div_td
+{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#popup_div_inner
+{
+	background-color: #FFFFFF;
+
+	margin: 0px auto;
+	padding: 10px;
+	
+	width: 300px;
+	height: 200px;
+}
+
+#popup_div_titel
+{
+	padding-bottom: 12px;
+}
+
+#popup_div_content
+{
+	height: 140px;
+	overflow: auto;
+}
+
+#popup_div_input
+{
+	margin-top: 10px;
+}
+
+#popup_div_input input
+{
+	width: 200px;
+}
+
+/* *** /Div Popup *** */
+
+
+.fruit_button, .fruit_button:visited
+{
+	background-color: #dfdfdf;
+	width: 100px; 
+	height: 100px; 
+	display: inline-block !important; 
+	padding: 5px;
+	
+	border-radius: 10px;
+	
+	transition: background-color 500ms ease-in-out;
+}
+
+.fruit_button img
+{
+	width: 100px; 
+	height: 100px; 
+	display: inline-block !important; 
+	
+}
+
+.fruit_button:active, .fruit_button:hover
+{
+	background-color: #FFFFFF;
+}
+
+
+/* *** Network menu *** */
+#networkmenu
+{
+	height: 30px;
+	text-align: center;
+	background-color: #caefaa;
+	overflow: hidden;	
+}
+@media only screen and (max-width:600px) { #networkmenu { display: none; } }
+
+.networkmenu_item, .networkmenu_item:visited
+{
+	background-repeat: no-repeat; background-position: left top;
+	display: inline-block;
+	width: 172px;
+	height: 30px;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+.networkmenu_item:active, .networkmenu_item:hover { opacity: 0.5; }
+
+#networkmenu_1 { width: 110px; background-image: url('../../afbeeldingen.spellingoefenen.nl/networkmenu/1_selected.png'); opacity: 1; }
+#networkmenu_2 { width: 85px; }
+#networkmenu_3 { width: 136px; }
+#networkmenu_4 { width: 117px; }
+
+/* *** /Network menu *** */
+
+
+
+
+.reg_form_td1
+{
+	width: 400px; 
+	height: 450px; 
+	display: table-cell; 
+	vertical-align: top;
+}
+
+.reg_form_td2
+{
+	width: 540px;
+	height: 450px;
+	display: table-cell;
+	vertical-align: top;
+}

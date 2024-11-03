@@ -1,0 +1,31 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sun, 03 Nov 2024 14:07:49 at https://www.spellingoefenen.nl/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://www.spellingoefenen.nl/ -O1 "C:\My Web Sites\e" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+14:08:08	Error: 	"Bad Request" (400) at link https://www.googletagmanager.com/gtm.js?id= (from https://www.spellingoefenen.nl/)
+14:08:12	Error: 	"Not Found" (404) at link https://www.spellingoefenen.nl/Edge/ (from https://www.spellingoefenen.nl/)
+14:09:46	Error: 	"Not Found" (404) at link https://afbeeldingen.spellingoefenen.nl/layoutimages/spellingoefenen/icons/vinkje.png (from https://js.spellingoefenen.nl/spellingoefenen/styles/layout.css)
+14:09:50	Warning: 	Retry after error 500 (Internal Server Error) at link s7.addthis.com/js/300/addthis_widget.js (from https://www.spellingoefenen.nl/oefenen.html)
+14:10:01	Error: 	"Not Found" (404) at link https://www.spellingoefenen.nl/games/werkwoorden/images/bg_1_docentendeel.jpg (from https://www.spellingoefenen.nl/docenten.php)
+14:10:09	Warning: 	Retry after error -5 (error:00000005:lib(0):func(0):DH lib) at link https://www.spellingoefenen.nl/games/platformgame/index.html (from https://www.spellingoefenen.nl/superpablo.html)
+14:10:37	Error: 	"Not Found" (404) at link https://www.spellingoefenen.nl/blog/privacy.html (from https://www.spellingoefenen.nl/blog/)
+14:10:37	Error: 	"Not Found" (404) at link https://www.spellingoefenen.nl/blog/contact.php (from https://www.spellingoefenen.nl/blog/)
+14:10:37	Error: 	"Not Found" (404) at link https://www.spellingoefenen.nl/algemene_voorwaarden (from https://www.spellingoefenen.nl/games/oefenen/index.html?gameType=oefenen)
+14:10:37	Warning: 	Retry after error 500 () at link s7.addthis.com/js/300/addthis_widget.js (from https://www.spellingoefenen.nl/oefenen.html)
+14:10:40	Error: 	"Not Found" (404) at link https://www.spellingoefenen.nl/games/global/poster.jpg (from https://www.spellingoefenen.nl/games/garden_race/index.html)
+14:10:41	Error: 	"Not Found" (404) at link https://www.spellingoefenen.nl/games/spiders/images/favicon.png (from https://www.spellingoefenen.nl/games/spiders/index.html)
+14:10:41	Error: 	"Not Found" (404) at link https://www.spellingoefenen.nl/games/spiders/images/logo.png (from https://www.spellingoefenen.nl/games/spiders/index.html)
+14:10:41	Error: 	"Not Found" (404) at link https://www.spellingoefenen.nl/games/spiders/images/button_play.png (from https://www.spellingoefenen.nl/games/spiders/index.html)
+14:10:41	Error: 	"Not Found" (404) at link https://www.spellingoefenen.nl/games/spiders/images/gamedesign.png (from https://www.spellingoefenen.nl/games/spiders/index.html)
+14:10:41	Error: 	"Not Found" (404) at link https://www.spellingoefenen.nl/blog/2024/privacy.html (from https://www.spellingoefenen.nl/blog/2024/hoeeenbetereuitspraak.html)
+14:10:41	Error: 	"Not Found" (404) at link https://www.spellingoefenen.nl/blog/2024/contact.php (from https://www.spellingoefenen.nl/blog/2024/hoeeenbetereuitspraak.html)
+14:10:41	Error: 	"Not Found" (404) at link https://www.spellingoefenen.nl/blog/2023/privacy.html (from https://www.spellingoefenen.nl/blog/2023/tips_dictee.html)
+14:10:41	Error: 	"Not Found" (404) at link https://www.spellingoefenen.nl/blog/2023/contact.php (from https://www.spellingoefenen.nl/blog/2023/tips_dictee.html)
+14:10:41	Error: 	"" (500) after 2 retries at link s7.addthis.com/js/300/addthis_widget.js (from https://www.spellingoefenen.nl/oefenen.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 2 minutes 52 seconds : 372 links scanned, 351 files written (15153059 bytes overall) [14281605 bytes received at 83032 bytes/sec], 1413805 bytes transferred using HTTP compression in 76 files, ratio 27%, 2.5 requests per connection
+(17 errors, 3 warnings, 0 messages)

@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.spellingoefenen.nl/docenten.php?page=ww by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 03 Nov 2024 13:10:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PZGST7WM');</script>
+    <!-- End Google Tag Manager -->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="Revisit-After" content="7 days">
+	<meta name="Robots" content="index, follow">
+	
+	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	    		
+	<title>Leerkracht</title>
+	
+	<meta name="description" content="">
+	<link href="images/icons/icon114.jpg" rel="apple-touch-icon-precomposed" sizes="114x114">	
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+
+	<link rel='stylesheet' type='text/css' href='../js.spellingoefenen.nl/spellingoefenen/styles/layout.css'>
+	<link rel='stylesheet' type='text/css' href='../js.spellingoefenen.nl/spellingoefenen/styles/layout_docenten.css'>
+	<link rel='stylesheet' type='text/css' href='../js.spellingoefenen.nl/spellingoefenen/games/styles/wl.css'>
+	<link rel='stylesheet' type='text/css' href='../js.spellingoefenen.nl/spellingoefenen/styles/layout_responsive.css'>
+
+	
+	<script type='text/javascript' src='../ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+	
+
+	<script>
+	
+	originalContents = "";
+	
+	function printDiv(divName)
+	{
+	     var printContents = document.getElementById(divName).innerHTML;
+	     originalContents = document.body.innerHTML;
+	
+	     document.body.innerHTML = printContents;
+	     document.body.style.backgroundColor = "#FFFFFF";
+	     
+	     window.print();
+	
+	     console.log('De printpagina wordt opgesteld!');
+	     setTimeout("restorePrint()",1000);
+		
+	     //document.body.innerHTML = originalContents;
+	}
+	
+	function restorePrint()
+	{
+		document.body.innerHTML = originalContents;
+		document.body.style.backgroundColor = "#dfdfdf";
+	}
+	
+	</script>
+	
+	
+
+
+	<script>
+	
+	// *** In taak wordt een array met de taak (10 vragen) opgeslagen
+	taak = new Array();
+	
+	
+	// *** Get Element
+	function ge(elementId)
+	{
+		if(document.getElementById(elementId))
+		{	
+			return(document.getElementById(elementId));
+		}
+		else
+		{
+			console.warn("A div with id " + elementId + " could not be found!");
+			return(false);
+		}
+	}	
+
+	
+	function hideMe(id)
+	{
+		$("#" + id).slideUp(150);
+	}
+	
+	function showMe(id)
+	{
+		$("#" + id).slideDown(150);
+	}
+	
+	function toggleMe(id)
+	{
+		$("#" + id).slideToggle(150);
+	}
+	
+
+	function showQuestion(this_taak, this_question)
+	{
+		for(i = 1; i <= 10; i++)
+		{
+			if(i == this_question)
+			{
+				toggleMe('dashboard_question_' + this_taak + '_' + i);
+			}
+			else
+			{
+				hideMe('dashboard_question_' + this_taak + '_' + i);
+			}
+			
+			//console.log('showQuestion: ' + this_taak + ' -> ' + this_question);
+	
+		}
+	}
+	
+	function showDashboardDetails(this_details)
+	{
+		if(ge('dashboard_details_' + this_details).style.display == 'block')
+		{
+			hideMe('dashboard_details_' + this_details);								
+			// ge('dashboard_details_button_' + this_details).className = 'dashboard_details';							
+		}
+		else
+		{
+			showMe('dashboard_details_' + this_details);								
+			// ge('dashboard_details_button_' + this_details).className = 'dashboard_details_open';
+			// ************************************************ Deze vind ik zelf onduidelijk **************************************************** showQuestion(this_details, 1);
+			
+			ajaxUpdate("a=getTaak&taak=" + this_details, 3);
+			
+		}
+	}
+
+	
+	// *** Ajax comm
+	function ajaxUpdate(dataString, dataLocation)
+	{
+		if(typeof dataLocation === "undefined") dataLocation = false;
+			
+		phpFile = 'taken_ajax.html';
+		if(dataLocation == 2) phpFile = 'games/werkwoorden/game_comm.html';
+		if(dataLocation == 3) phpFile = 'includes/ajax.html';
+		
+		console.log("ajaxUpdate (): " + dataString);
+	
+		$.ajax({
+	
+			type: 'POST',
+			data: dataString,
+			url: phpFile,
+		
+			success:function(data){ ajaxReturn(data); } 
+			
+		});
+	}
+	
+	function ajaxReturn(data)
+	{
+		console.log('ajaxReturn');
+		console.log(data);
+		
+		var answer = $.parseJSON(data);
+		
+		if(answer["a"] != "docentRefresh") console.log("ajaxReturn!");
+		if(answer["a"] != "docentRefresh") console.log(answer);
+		
+		if(answer["a"] == "getTaak")
+		{
+			ge('dashboard_details_' + answer["taak"]).innerHTML = answer["html"];
+			ge('dashboard_button_taak_progress_' + answer["taak"]).style.width = answer["taak_percentage"] + 'px';
+		}
+		
+		if(answer["a"] == "docentRefresh")
+		{
+			console.log("docentRefresh");
+			
+			for(key in answer)
+			{
+				if(key.substr(0, 9) == "antwoord_" && key.indexOf("_correct") <= 0)
+				{
+					div_html = "";
+					
+					if(answer[key] == "")
+					{
+						div_html = "<span class=\"antwoord_leeg\">-</span>";
+					}
+					else
+					{
+						if(parseInt(answer[key + "_correct"]) == 1)
+						{
+							div_html = "<span class=\"antwoord_goed\">" + answer[key] + "</span>";
+						}
+						else
+						{
+							div_html = "<span class=\"antwoord_fout\">" + answer[key] + "</span>";
+						}
+						
+					}
+					
+					
+					div_html_old = ge(key).innerHTML;
+
+					//console.log(key + ": " + answer[key] + ": " + div_html_old + "->" + div_html);
+					
+					if(div_html_old != div_html)
+					{
+						ge(key).style.backgroundColor = "#FFFF00";
+					}
+					else
+					{
+						ge(key).style.backgroundColor = "";
+					}
+					
+					ge(key).innerHTML = div_html;
+				}
+			}
+					
+		
+		}
+
+		if(answer["a"] == "wlAjaxGet")
+		{
+			werkwoordenSubmitReturn(answer["wl"]);
+		}		
+	}
+	
+	function ajaxRefresh()
+	{
+	
+		if(typeof jsTaakString === "undefined") jsTaakString = "";
+		
+		if(jsTaakString != "")
+		{
+			temp = jsTaakString.split(',');
+			updateTaakString = '';
+			
+			for(i = 0; i < temp.length; i++)
+			{
+				if(ge('dashboard_details_' + temp[i]).style.display == 'block')
+				{
+					updateTaakString += temp[i] + ',';
+				}
+				
+				//console.log('- ' + temp[i] + ': ' + ge('dashboard_details_' + temp[i]).style.display);
+			}
+				
+			if(updateTaakString != '') ajaxUpdate("a=docentRefresh&updateTaakString=" + updateTaakString); 
+		}
+	}
+	
+	//setInterval(function(){ ajaxRefresh(); }, 10000);
+
+
+	// *** Woordenlijst functionaliteit
+	wlNoScroll = true;
+	gameType = "dictee";
+	completeWL = '';
+		
+	
+	function DocentinitWL()
+	{
+		gameType = ge('taken_niveau').value;
+        if (gameType == 'dictee zonder hulp'){gameType = 'dictee'};
+		console.log("gameType: " + gameType);
+		
+		completeWL = '';
+		
+		groep = '';
+		categorie = '';
+		methode = '';
+		paketten = '';
+		
+		if(gameType == 'werkwoorden')
+		{
+			console.log('Werkwoorden.');
+			ge("werkwoorden").style.display = 'table';
+		}
+		else
+		{
+			groep = getCookie('groep');
+			categorie = getCookie('categorie');
+			methode = getCookie('methode');
+			paketten = getCookie('paketten');
+			
+			selectGroepWL(groep);
+			selectCatWL(categorie);
+			selectMethode(methode);
+			selectWL(paketten)
+		
+			ge("wl").style.display = 'table';
+		}
+	}
+	
+	function resetGame()
+	{
+		//alert("resetGame: " + completeWL);
+		
+		if(completeWL == '') ge('buttonSelectWL').style.opacity = 1; else ge('buttonSelectWL').style.opacity = 0.5;
+	}
+	
+	</script>
+
+
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/lijn3.js"></script>
+    <script src="../js.spellingoefenen.nl/spellingoefenen/games/veiliglerenlezen.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/taalactief3.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/taalactief4.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/taaljournaal.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/taalopmaat.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/taalverhaal.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/staal.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/spellinginbeeld.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/spellinginbeeld2.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/taalfontein.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/tijdvoortaal.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/taalverhaalnu.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/allesineen.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/CAT.js"></script>	
+
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/woordenlijsten.js"></script>
+
+    
+    
+			<script src='../tags.refinery89.com/spellingoefenennl.js' async></script>
+            <div class='r89-desktop-hpa-left-Home'></div>
+			    
+</head>
+<body>
+    
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZGST7WM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- *** Networkmenu *** -->
+<div id='networkmenu'>
+
+	<div class='networkmenu_item' id='networkmenu_1'><img src='../afbeeldingen.spellingoefenen.nl/networkmenu/1.png' alt='Spellingoefenen.nl: Spelling oefenen voor groep 3,4,5,6,7 en 8'></div>
+	<a href='https://www.taaloefenen.nl/' target='_blank' class='networkmenu_item' id='networkmenu_2'><img src='../afbeeldingen.spellingoefenen.nl/networkmenu/2.png' alt='Taaloefenen.nl: Taal oefenen voor groep 3,4,5,6,7 en 8'></a>
+	<a href='https://www.sommenoefenen.nl/' target='_blank' class='networkmenu_item' id='networkmenu_3'><img src='../afbeeldingen.spellingoefenen.nl/networkmenu/3.png' alt='Sommenoefenen.nl: Sommen oefenen voor groep 3,4,5,6,7 en 8'></a>
+	<a href='https://www.redactiesommen.nl/' target='_blank' class='networkmenu_item' id='networkmenu_4'><img src='../afbeeldingen.spellingoefenen.nl/networkmenu/4.png' alt='Redactiesommen.nl: Cito rekenen met verhaaltjessommen'></a>
+
+</div>
+<!-- *** /Networkmenu *** -->
+
+
+<!-- Woordenlijst -->
+<style>
+
+#wl
+{
+	position: fixed;
+	z-index: 1000;
+	
+	display: none;
+	width: 80%;
+	height: 80%;
+	
+	left: 10%;
+	top: 10%;
+}
+
+#groepofleerjaar, .groep_label
+{
+	display: inline-block;
+}
+
+</style>
+<div id='wl'>
+<div id='wl_tr'>
+
+	<div id='wl_td'>
+	<div id='wl_td_div'>
+
+		<div id='wl_groep'>
+		
+			<div><label class="groep_label">Kies je</label> <label id="groepofleerjaar">groep</label><label class="groep_label">:</label></div>
+		
+			<a href='javascript: selectGroepWL(3); void(0);' id='wl_groep_3' class='wl_groep_button'><label id="groepvier">3</label></a>
+			<a href='javascript: selectGroepWL(4); void(0);' id='wl_groep_4' class='wl_groep_button'><label id="groepvier">4</label></a>
+			<a href='javascript: selectGroepWL(5); void(0);' id='wl_groep_5' class='wl_groep_button'><label id="groepvijf">5</label></a>
+			<a href='javascript: selectGroepWL(6); void(0);' id='wl_groep_6' class='wl_groep_button'><label id="groepzes">6</label></a>
+			<a href='javascript: selectGroepWL(7); void(0);' id='wl_groep_7' class='wl_groep_button'><label id="groepzeven">7</label></a>
+			<a href='javascript: selectGroepWL(8); void(0);' id='wl_groep_8' class='wl_groep_button'><label id="groepacht">8</label></a>
+
+			<br><br>
+
+			<div><a href='javascript: ge("wl").style.display = "none"; void(0);' style='color: #FFFFFF;'>Sluiten</a></div>
+			
+		</div>
+	
+		<div id='wl_cat'>
+		
+			<div>Wat wil je oefenen?</div>
+
+			<a href='javascript: selectCatWL("WOORDPAKKET"); void(0);' id='wl_cat_1' class='wl_button'>Woordpakket</a>
+			<a href='javascript: selectCatWL("SPELLINGSCATEGORIE"); void(0);' id='wl_cat_2' class='wl_button'>Spellingcategorie</a>
+			<a href='javascript: selectCatWL("ALLES"); void(0);' id='wl_cat_3' class='wl_button'>Alles</a>
+	
+		</div>
+	
+		<div id='wl_woordenlijsten'>
+		
+			<a href='javascript: selectWL("W4.2"); void(0);' id='woordenlijst_W4.2'>Methode Taalfontein, leseenheid 1</a>
+	
+	
+		</div>
+	
+		<div id='wl_start'>
+		
+			<a href='javascript: startWL(); void(0);' class='wl_start_button'>Start</a>
+	
+		</div>
+
+	</div>
+	</div>
+
+</div>
+</div>
+
+
+
+
+<!-- Woordenlijst -->
+<style>
+
+#werkwoorden
+{
+	background-image: url('games/werkwoorden/images/bg_1_docentendeel.html'); background-repeat: no-repeat; background-position: left top;
+	background-size: cover;
+	
+	position: fixed;
+	z-index: 1000;
+	
+	display: none;
+	width: 60%;
+	height: 40%;
+	
+	left: 10%;
+	top: 5%;
+}
+
+#werkwoorden_td_div_inner
+{
+	width: 360px;
+	margin: 0px auto;
+	text-align: left;
+	font-size: 18px;
+}
+
+#werkwoorden_td_div_inner div
+{
+	line-height: 16px !important;
+}
+
+</style>
+
+<script>
+
+function werkwoordenSubmitForm()
+{
+	if(!ge("ik_vorm").checked && !ge("je_jij").checked && !ge("hij_zij_wij_vorm").checked && !ge("gebiedende_wijs").checked && !ge("sterk_werkwoord").checked && !ge("zwak_werkwoord").checked && !ge("enkelvoud").checked && !ge("meervoud").checked && !ge("voltooid_deelwoord").checked && !ge("bijv_gebruikt_deelwoord").checked)
+	{
+		alert("Selecteer tenminste één categorie.");
+	}
+	else
+	{
+		// *** Get werkwoorden
+		if(ge("ik_vorm").checked) 		  cb1 = true; else cb1 = false;
+		if(ge("je_jij").checked) 		  cb2 = true; else cb2 = false;
+		if(ge("hij_zij_wij_vorm").checked) 	  cb3 = true; else cb3 = false;
+		if(ge("gebiedende_wijs").checked) 	  cb4 = true; else cb4 = false;
+		if(ge("sterk_werkwoord").checked) 	  cb5 = true; else cb5 = false;
+		if(ge("zwak_werkwoord").checked) 	  cb6 = true; else cb6 = false;
+		if(ge("enkelvoud").checked) 		  cb7 = true; else cb7 = false;
+		if(ge("meervoud").checked) 		  cb8 = true; else cb8 = false;
+		if(ge("voltooid_deelwoord").checked) 	  cb9 = true; else cb9 = false;
+		if(ge("bijv_gebruikt_deelwoord").checked) cb10 = true; else cb10 = false;
+		
+		ajaxUpdate("a=wlAjaxGet&ik_vorm=" + cb1 + "&je_jij=" + cb2 + "&hij_zij_wij_vorm=" + cb3 + "&gebiedende_wijs=" + cb4 + "&sterk_werkwoord=" + cb5 + "&zwak_werkwoord=" + cb6 + "&enkelvoud=" + cb7 + "&meervoud=" + cb8 + "&voltooid_deelwoord=" + cb9 + "&bijv_gebruikt_deelwoord=" + cb10 + "", 2);		
+	}
+}
+
+function werkwoordenSubmitReturn(thisWL)
+{
+	console.log("werkwoordenSubmitReturn");
+	console.log(thisWL);
+
+
+	// *** Woordenlijsten samenvoegen
+	completeWL = "";
+	
+	//temp = wordsPakketten.split(",");
+	
+	for(i = 0; i < thisWL.length; i++)
+	{
+		completeWL += thisWL[i].question.split("//").join("index.html").split(",").join(";") + " [" + thisWL[i].answer + ":" + thisWL[i].id + "],";
+	}
+
+	completeWL = completeWL.split(",,").join(",");		
+	console.log("completeWL: " + completeWL);
+	
+			
+	ge("werkwoorden").style.display = "none";
+	
+}
+	
+function CheckboxWerkwoordenAanUit(){
+	
+if(!ge("checkall").checked){ge("ik_vorm").checked = false;} else{ge("ik_vorm").checked = true;}
+if(!ge("checkall").checked){ge("je_jij").checked = false;} else{ge("je_jij").checked = true;}
+if(!ge("checkall").checked){ge("hij_zij_wij_vorm").checked = false;} else{ge("hij_zij_wij_vorm").checked = true;}
+if(!ge("checkall").checked){ge("gebiedende_wijs").checked = false;} else{ge("gebiedende_wijs").checked = true;}
+if(!ge("checkall").checked){ge("sterk_werkwoord").checked = false;} else{ge("sterk_werkwoord").checked = true;}
+if(!ge("checkall").checked){ge("zwak_werkwoord").checked = false;} else{ge("zwak_werkwoord").checked = true;}
+if(!ge("checkall").checked){ge("enkelvoud").checked = false;} else{ge("enkelvoud").checked = true;}
+if(!ge("checkall").checked){ge("meervoud").checked = false;} else{ge("meervoud").checked = true;}
+if(!ge("checkall").checked){ge("voltooid_deelwoord").checked = false;} else{ge("voltooid_deelwoord").checked = true;}
+if(!ge("checkall").checked){ge("bijv_gebruikt_deelwoord").checked = false;} else{ge("bijv_gebruikt_deelwoord").checked = true;}
+	
+	
+	
+	
+}
+
+</script>
+
+
+<div id='werkwoorden'>
+<div id='werkwoorden_tr'>
+
+	<div id='werkwoorden_td'>
+	<div id='werkwoorden_td_div'>
+	<div id='werkwoorden_td_div_inner'>
+		
+		<h3>Tegenwoordige tijd:</h3>
+		<div><label><input type='checkbox' id='ik_vorm'> Ik-vorm</label></div>
+		<div><label><input type='checkbox' id='hij_zij_wij_vorm'> Hij / zij / wij-vorm</label></div>
+		<div><label><input type='checkbox' id='je_jij'> ... je / jij</label></div>
+		<div><label><input type='checkbox' id='gebiedende_wijs'> Gebiedende wijs</label></div>
+		
+		<br>
+		
+		<h3>Verleden tijd:</h3>
+		<div><label><input type='checkbox' id='sterk_werkwoord'> Sterke werkwoorden - enkelvoud</label></div>
+		<div><label><input type='checkbox' id='zwak_werkwoord'> Sterke werkwoorden - meervoud</label></div>
+		<div><label><input type='checkbox' id='enkelvoud'> Zwakke werkwoorden - enkelvoud</label></div>
+		<div><label><input type='checkbox' id='meervoud'> Zwakke werkwoorden - meervoud</label></div>
+		<div><label><input type='checkbox' id='voltooid_deelwoord'> Voltooid deelwoord</label></div>
+		<div><label><input type='checkbox' id='bijv_gebruikt_deelwoord'> Bijv gebruikt deelwoord</label></div>
+		
+		<br>
+		
+		<div><label><input type='checkbox' id='checkall' onclick='CheckboxWerkwoordenAanUit()'> Alles aan</label></div>
+
+		<br>
+		
+		<a href='javascript: werkwoordenSubmitForm(); void(0);' class='button_alt'>Selecteren</a>
+
+		&nbsp;
+		
+		<a href='javascript: hideMe("werkwoorden"); void(0);' class='button'>Sluiten</a>
+
+	</div>
+	</div>
+	</div>
+
+</div>
+</div>
+
+
+
+
+<div class='header' id='header'>
+
+	<div class='header_div'>
+
+		<a href='index.html' class='logo'></a>
+
+		<div id='menu' class='menu'>
+
+			<a href='index.html' class='button'>Home</a>
+          		<a href='oefenen.html' class='button'>Oefenen</a>
+			<a href='dictee.html' class='button'>Dictee</a>
+			<a href='werkwoorden-oefenen.html' class='button_alt'>Werkwoorden</a>
+			<a href='spelletjes.html' class='button'>Spelletjes</a>
+			<a href='taken.html' class='button'>Klas</a>
+			<a href='docenten.html' class='button_selected'>Docenten</a>
+
+		</div>
+	
+	</div>
+
+</div>
+
+<!-- start template -->
+<div id="template">
+	
+	<!-- start layout -->
+	<div id="layout">
+		
+                
+	
+	        	<!-- start banner -->
+			<div id="banner-part">
+		        
+		            <!-- start banner -->
+		            <div class="banner-bar">
+		                
+		                <div class="banner">                
+		                    <div class="centering">
+		                        
+					
+
+						<div class='left'>
+						
+							<h2>Wachtwoord vergeten</h2>
+						
+							<br>
+							
+							<form method='post' name='ww_form' action='https://www.spellingoefenen.nl/docenten.php?page=ww_send'>
+							
+							
+							
+							<div class='form_input_login_label'>Vul je e-mail adres in en wij mailen instructies om je wachtwoord te wijzigen:</div>
+							<input type='email' name='email' class='form_input_login' value=''>
+						
+							<br><br>
+
+							<div class='form_input_login_label'>Typ de 3 cijfers over:</div>							
+							<div class='captcha'>
+							
+								<div class='captcha_div'><img src='includes/password_img86ca.png?c=8730&amp;color=FFFFFF&amp;bgcolor=3486a9' width='100' height='58' align='absmiddle'></div>
+								<div class='captcha_div'>></div>
+								<div class='captcha_div'><input type='hidden' name='c' value='8730'><input type='number' name='userc' class='form_input_login' maxlength='3' style='width: 65px;'></div>
+						
+							</div>
+													
+														
+							<ul class='btn' style='margin-top: -20px;'>
+								
+								<li><a href='javascript: document.ww_form.submit(); void(0);'>Wachtwoord instructies mailen</a></li>
+								
+							</ul>
+
+							<br>
+							
+							<div class='form_input_login_label'><a href='docenten.html'>Terug</a></div>
+						
+							<br><br>
+												
+		                
+		                        	</div>
+		                        		                        			                        
+		                     		<div class='clear'></div>						
+						
+								         
+		         		<!--
+		         		
+		         		    <div class="left">
+		         		
+		                            <h2>Onbeperkt online verhaaltjessommen oefenen en werkbladen maken!</h2>
+		                            
+		                            <ul class="btn">
+		
+		                                <li><a href="groep4.html">Meteen oefenen</a></li>
+		                                <li><a href="werkbladmaken.html">Maak een werkblad</a></li>
+		                           
+		                            </ul>
+		
+						<br><br>
+							
+						<div id='div-gpt-ad-1421909912033-0' style='width:728px; height:90px;'>
+							
+							<script type='text/javascript'>
+							
+								googletag.display('div-gpt-ad-1421909912033-0');
+							
+							</script>
+						
+						</div>    
+		                
+		                        </div>
+		                        
+		                        <img src="images/sign.png" alt="" class="sign" />
+		                        
+		                        <div class="clear"></div>
+		                	-->
+		                        
+		                    </div>
+		
+				</div>
+		                
+		                <div class="clear"></div>
+		                
+		            </div>
+		            <!-- end banner -->
+		            
+	          	<div class="clear"></div>
+	        
+			</div>
+			<!-- end banner -->
+			
+			<!-- start content -->
+			<div id="content-part">
+	
+				<!-- start centerpart -->
+				<div id="center-part">
+	
+			            	<div class="centering">
+
+							                
+				                <!-- Uitleg in uitgelogde toestand -->
+				                
+				                    <!-- start text bar -->
+				                    <div class="text-bar">
+		    
+						     	<br>                    
+							
+							<div class="tekstads" style="padding-left:26px">                 
+							
+								<!-- RedactieIndexLinks 
+								<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+								<ins class="adsbygoogle" style="display:inline-block;width:728px;height:15px" data-ad-client="ca-pub-1545093868086515" data-ad-slot="1871244645"></ins>
+								<script>
+								(adsbygoogle = window.adsbygoogle || []).push({});
+								</script>
+								-->
+							
+							</div>
+							   
+							<div class="role">
+							
+							<a class="foto"><img width=300px src="images/role_imgdocent1.png" alt="" /></a>
+							
+								<div class="text">
+							
+									<h3>Uw leerlingen loggen in met 1 groepscode en klikken op hun naam.</h3>                                
+									<p>U hoeft alleen zelf te registreren en een klas aan te maken met een groepscode. U kunt leerlingen daarna snel toevoegen door alleen de voornamen in te typen maar leerlingen kunnen ook zichzelf toevoegen. Eenvoudiger kan niet.</p>
+							
+								</div>
+							
+							</div>
+		                    
+							
+							<div class="role">
+							
+								<a class="foto"><img width=340px src="images/role_imgdocent2.png" alt="" /></a>
+							
+								<div class="text">
+							
+									<h3>Eenvoudig een taak klaarzetten vanuit woordpakketten</h3>
+									<p>Een taak klaarzetten doet u door een naam te geven, een keuze uit 'dictee' of 'oefenen' te maken en het betreffende woordpakket te kiezen. Er kunnen meerdere taken worden klaargezet. Bijvoorbeeld voor meerdere weken of voor verschillende niveaus.</p>
+							
+								</div>
+							
+							</div>
+							
+							<div class="role">
+							
+								<a class="foto"><img width=400px src="images/role_imgdocent3.png" alt="" /></a>
+							
+								<div class="text">
+							
+									<h3>Een handig overzicht en foutenanalyse</h3>
+									<p>Terwijl leerlingen een taak maken vult zich een overzicht. Hiermee krijgt u inzicht in de prestaties van iedere leerling maar ziet u ook welke woorden nog moeilijk waren en hoe deze fout werden gespeld!</p>
+							
+								</div>
+							
+							</div>
+							
+							
+							
+					
+								<div class="role role1" align="center">
+								
+									<!-- RedactieIndexOnder 
+									<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+									<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1545093868086515" data-ad-slot="5221348244"></ins>
+									<script>
+									(adsbygoogle = window.adsbygoogle || []).push({});
+									</script>   
+									-->
+		
+								</div>
+		
+							</div>
+							
+		                		  <!-- end text bar -->
+						  </div>
+	
+				                <!-- end Uitleg in uitgelogde toestand -->
+	
+	
+	
+				  </div>
+				  <!-- end centering -->
+	
+				</div>
+				<!-- end center part -->
+	
+			</div>
+			<!-- end content -->
+			
+			
+	</div>
+	<!-- end layout -->
+	
+</div>
+<!-- end template -->
+
+
+<div class='footer' style='background-color: #dfdfdf;'>
+	
+	<div class='footer_div'>
+
+		<a href='http://www.gamedesign.nl/' title='Game design, webdesign en meer!' target='_blank' class='footer_gamedesign'></a>
+
+	© <span id='jaartal'>2022</span> SpellingOefenen.nl™ &nbsp; | &nbsp; <a href='privacy.html'>Privacy</a> &nbsp; | &nbsp; <a href='https://www.bijdeles.online/'>Bijdeles.online</a>  &nbsp; | &nbsp; &nbsp; | &nbsp; <a href='https://www.taaloefenen.nl/'>Taal oefenen</a>  &nbsp; | &nbsp; <a href='contact.html'>Contact</a>
+
+	</div>
+
+</div>
+
+</body>
+
+
+<!-- Mirrored from www.spellingoefenen.nl/docenten.php?page=ww by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 03 Nov 2024 13:10:03 GMT -->
+</html>

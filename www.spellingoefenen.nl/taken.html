@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.spellingoefenen.nl/taken.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 03 Nov 2024 13:10:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    
+     <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PZGST7WM');</script>
+    <!-- End Google Tag Manager -->
+		
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="Revisit-After" content="7 days">
+	<meta name="Robots" content="index, follow">
+	
+	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	    	
+	<title>Klas</title>
+	
+	<meta name="description" content="">
+	<link href="../afbeeldingen.spellingoefenen.nl/spelling_oefenen/layout/icons/icon114.jpg" rel="apple-touch-icon-precomposed" sizes="114x114">	
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+
+	<link rel='stylesheet' type='text/css' href='../js.spellingoefenen.nl/spellingoefenen/styles/layout.css'>
+	<link rel='stylesheet' type='text/css' href='../js.spellingoefenen.nl/spellingoefenen/styles/layout_docenten.css'>
+	<link rel='stylesheet' type='text/css' href='../js.spellingoefenen.nl/spellingoefenen/games/styles/wl.css'>
+	<link rel='stylesheet' type='text/css' href='../js.spellingoefenen.nl/spellingoefenen/styles/layout_responsive.css'>
+	
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<!--<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=frankdew" async></script>-->
+	<script type='text/javascript' src='../ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+
+
+
+	
+	<!--
+	<script type='text/javascript'>
+		
+		(function() {
+		var useSSL = 'https:' == document.location.protocol;
+		var src = (useSSL ? 'https:' : 'http:') +
+		'//www.googletagservices.com/tag/js/gpt.js';
+		document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+		})();
+		
+	</script>
+	
+	<script type='text/javascript'>
+		
+		googletag.defineSlot('/1030701/Ext//Edumore//Leaderboard', [728, 90], 'div-gpt-ad-1421909912033-0').addService(googletag.pubads());
+		googletag.pubads().setTargeting('page_lang', 'NL');
+		googletag.pubads().setTargeting('page_type', 'Education');
+		googletag.pubads().enableSyncRendering();
+		googletag.enableServices();
+	
+	</script>
+	-->
+
+	<script>
+	
+	// *** In taak wordt een array met de taak (10 vragen) opgeslagen
+	taak = new Array();
+	
+	
+	// *** Get Element
+	function ge(elementId)
+	{
+		if(document.getElementById(elementId))
+		{	
+			return(document.getElementById(elementId));
+		}
+		else
+		{
+			console.warn("A div with id " + elementId + " could not be found!");
+			return(false);
+		}
+	}	
+
+	
+	function hideMe(id)
+	{
+		$("#" + id).slideUp(150);
+	}
+	
+	function showMe(id)
+	{
+		$("#" + id).slideDown(150);
+	}
+	
+	function toggleMe(id)
+	{
+		$("#" + id).slideToggle(150);
+	}
+		
+	// *** Ajax comm
+	function ajaxUpdate(dataString)
+	{		
+		console.log("ajaxUpdate: " + dataString);
+	
+		$.ajax({
+	
+			type: 'POST',
+			data: dataString,
+			url: 'taken_ajax.php',
+		
+			success:function(data){ ajaxReturn(data); }
+			
+		});
+	}
+	
+	function ajaxReturn(data)
+	{
+		console.log('ajaxReturn');
+		console.log(data);
+		
+		var answer = $.parseJSON(data);
+		
+		if(answer["a"] != "docentRefresh") console.log("ajaxReturn!");
+		if(answer["a"] != "docentRefresh") console.log(answer);
+		
+		if(answer["a"] == "docentRefresh")
+		{
+			//console.log("docentRefresh");
+			
+			for(key in answer)
+			{
+				if(key.substr(0, 9) == "antwoord_" && key.indexOf("_correct") <= 0)
+				{
+					div_html = "";
+					
+					if(answer[key] == "")
+					{
+						div_html = "<span class=\"antwoord_leeg\">-</span>";
+					}
+					else
+					{
+						if(parseInt(answer[key + "_correct"]) == 1)
+						{
+							div_html = "<span class=\"antwoord_goed\">" + answer[key] + "</span>";
+						}
+						else
+						{
+							div_html = "<span class=\"antwoord_fout\">" + answer[key] + "</span>";
+						}
+						
+					}
+					
+					
+					div_html_old = ge(key).innerHTML;
+
+					//console.log(key + ": " + answer[key] + ": " + div_html_old + "->" + div_html);
+					
+					if(div_html_old != div_html)
+					{
+						ge(key).style.backgroundColor = "#FFFF00";
+					}
+					else
+					{
+						ge(key).style.backgroundColor = "";
+					}
+					
+					ge(key).innerHTML = div_html;
+				}
+			}
+					
+		
+		}
+	}
+	
+
+	// *** Woordenlijst functionaliteit
+	wlNoScroll = true;
+	gameType = "dictee";
+	completeWL = '';
+	
+	function initWL()
+	{
+		gameType = ge('taken_niveau').value;
+		console.log("gameType: " + gameType);
+		
+		completeWL = '';
+		
+		groep = ''; // getCookie('groep'); // 4
+		categorie = ''; // getCookie('categorie') // WOORDPAKKET
+		methode = ''; // getCookie('methode') // Taaljournaal
+		paketten = ''; // getCookie('paketten') // TJ.4.1
+		
+		selectGroepWL(groep);
+		selectCatWL(categorie);
+		selectMethode(methode);
+		selectWL(paketten)
+	
+		ge("wl").style.display = 'table';
+	}
+	
+	function resetGame()
+	{
+		//alert("resetGame: " + completeWL);
+		
+		if(completeWL == '') ge('buttonSelectWL').style.opacity = 1; else ge('buttonSelectWL').style.opacity = 0.5;
+	}
+	
+	</script>
+
+<script src="../js.spellingoefenen.nl/spellingoefenen/games/lijn3.js"></script>
+    <script src="../js.spellingoefenen.nl/spellingoefenen/games/veiliglerenlezen.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/taalactief3.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/taalactief4.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/taaljournaal.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/taalopmaat.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/taalverhaal.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/staal.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/spellinginbeeld.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/spellinginbeeld2.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/taalfontein.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/tijdvoortaal.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/taalverhaalnu.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/allesineen.js"></script>
+	<script src="../js.spellingoefenen.nl/spellingoefenen/games/CAT.js"></script>	
+    <script src="../js.spellingoefenen.nl/spellingoefenen/games/woordenlijsten.js"></script>
+    
+    
+			<script src='../tags.refinery89.com/spellingoefenennl.js' async></script>
+			
+</head>
+<body>
+    
+ <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PZGST7WM');</script>
+    <!-- End Google Tag Manager -->
+		
+
+<!-- *** Networkmenu *** -->
+<div id='networkmenu'>
+
+	<div class='networkmenu_item' id='networkmenu_1'><img src='../afbeeldingen.spellingoefenen.nl/networkmenu/1.png' alt='Spellingoefenen.nl: Spelling oefenen voor groep 3,4,5,6,7 en 8'></div>
+	<a href='https://www.taaloefenen.nl/' target='_blank' class='networkmenu_item' id='networkmenu_2'><img src='../afbeeldingen.spellingoefenen.nl/networkmenu/2.png' alt='Taaloefenen.nl: Taal oefenen voor groep 3,4,5,6,7 en 8'></a>
+	<a href='https://www.sommenoefenen.nl/' target='_blank' class='networkmenu_item' id='networkmenu_3'><img src='../afbeeldingen.spellingoefenen.nl/networkmenu/3.png' alt='Sommenoefenen.nl: Sommen oefenen voor groep 3,4,5,6,7 en 8'></a>
+	<a href='https://www.redactiesommen.nl/' target='_blank' class='networkmenu_item' id='networkmenu_4'><img src='../afbeeldingen.spellingoefenen.nl/networkmenu/4.png' alt='Redactiesommen.nl: Cito rekenen met verhaaltjessommen'></a>
+
+</div>
+<!-- *** /Networkmenu *** -->
+
+<div class='header' id='header'>
+
+	<div class='header_div'>
+
+		<a href='index.html' class='logo'></a>
+	
+		<div id='menu' class='menu'>
+
+		   
+					<a href='index.html' class='button'>Home</a>
+					<a href='oefenen.html' class='button'>Oefenen</a>
+					<a href='dictee.html' class='button'>Dictee</a>
+					<a href='werkwoorden-oefenen.html' class='button_alt'>Werkwoorden</a>
+					<a href='spelletjes.html' class='button'>Spelletjes</a>
+					<a href='taken.html' class='button_selected'>Klas</a>
+					<a href='docenten.html' class='button'>Docenten</a>
+				
+		</div>
+	
+	</div>
+
+</div>
+
+<!-- start template -->
+<div id="template">
+	
+	<!-- start layout -->
+	<div id="layout">
+		
+                
+	
+	        	<!-- start banner -->
+			<div id="banner-part">
+		        
+		            <!-- start banner -->
+		            <div class="banner-bar">
+		                
+		                <div class="banner">                
+		                    <div class="centering">
+		                        
+					
+
+						<div class='left'>
+						
+							<h2>Log in met je klas wachtwoord:</h2>
+						
+							<br>
+							
+							<form method='post' name='login_form'>
+							<input type='hidden' name='a' value='login'>
+							
+							
+							
+							<input type='text' name='wachtwoord' class='form_input_login' style='height:22px;' value=''>
+						
+														
+							<ul class='btn' style='margin-top: -20px;'>
+								
+								<li><a href='javascript: document.login_form.submit(); void(0);'>Inloggen</a></li>
+								
+							</ul>
+
+							<br>
+							
+							<!-- Ext/Edumore/Leaderboard -->
+
+							<div id='div-gpt-ad-1421909912033-0' style='width:728px; height:90px;'>
+
+							<script type='text/javascript'>
+
+							//googletag.display('div-gpt-ad-1421909912033-0');
+
+							</script>
+							
+				
+
+		                	</div> 	
+		                 </div>
+		                        
+			                    <div class='right'>
+			                        	
+			                        	<h2>Voor docenten</h2>
+			                        	
+			                        	<br>
+			                        		                        	
+			                        	<p>Ben je een docent en wil je met je klas spelling oefenen? Maak GRATIS je klas aan en stuur taken naar alle leerlingen!</p>
+
+										<ul class='btn' style='margin-top: -20px;'>
+								
+										<li><a href='docenten4d8f.html?page=reg'>Naar docentendeel</a></li>
+								
+										</ul>
+							
+										<br>
+									                        	
+		                        </div>
+									
+												
+		                        			                        
+		                     		<div class='clear'></div>				
+						
+								         		                        
+		                    </div>
+		
+				</div>
+		                
+		                <div class="clear"></div>
+		                
+		            </div>
+		            <!-- end banner -->
+		            
+	          	<div class="clear"></div>
+	        
+			</div>
+			<!-- end banner -->
+			
+			<!-- start content -->
+			<div id="content-part">
+	
+				<!-- start centerpart -->
+				<div id="center-part">
+	
+			            	<div class="centering">
+
+							                
+				                <!-- Uitleg in uitgelogde toestand -->
+				                
+				                    <!-- start text bar -->
+				                    <div class="text-bar">
+		    
+						     	<br>    
+										
+										
+								   <div class="text-bar">
+		    
+						     	<br>    
+								
+																			
+								 <!-- Ads hier-->
+										
+										
+										
+							   
+								<div class="role" align="center">
+								
+									<!-- RedactieIndexOnder 
+									<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+									<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1545093868086515" data-ad-slot="5221348244"></ins>
+									<script>
+									(adsbygoogle = window.adsbygoogle || []).push({});
+									</script>   
+									-->
+									
+								
+		
+								</div>
+		
+							</div>
+							
+		                		  <!-- end text bar -->
+						  </div>
+	
+				                <!-- end Uitleg in uitgelogde toestand -->
+	
+	
+	
+				  </div>
+				  <!-- end centering -->
+	
+				</div>
+				<!-- end center part -->
+	
+			</div>
+			<!-- end content -->
+			
+			
+	</div>
+	<!-- end layout -->
+	
+</div>
+<!-- end template -->
+
+<!--<script type="text/javascript" charset="UTF-8" src="//cookie-script.com/s/705ec5686494186fa5e08333323e3c93.js"></script> <!--End Cookie Script-->
+
+<div class='footer' style='background-color: #dfdfdf;'>
+	
+	<div class='footer_div'>
+
+		<a href='http://www.gamedesign.nl/' title='Game design, webdesign en meer!' target='_blank' class='footer_gamedesign'></a>
+
+		© <span id='jaartal'>2022</span> SpellingOefenen.nl™ &nbsp; | &nbsp; <a href='privacy.html'>Privacy</a> &nbsp; | &nbsp; <a href='https://www.bijdeles.online/'>Bijdeles.online</a>  &nbsp; | &nbsp; &nbsp; | &nbsp; <a href='https://www.taaloefenen.nl/'>Taal oefenen</a>  &nbsp; | &nbsp; <a href='contact.html'>Contact</a>
+
+
+	</div>
+
+</div>
+
+</body>
+
+
+<!-- Mirrored from www.spellingoefenen.nl/taken.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 03 Nov 2024 13:10:00 GMT -->
+</html>

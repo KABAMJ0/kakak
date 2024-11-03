@@ -1,0 +1,174 @@
+html, body
+{
+	background-color: #111;
+
+	width: 100%;
+	height: 100%;
+
+	max-width: 100%;
+	max-height: 100%;
+
+	margin: 0px;
+	padding: 0px;
+
+	color: #666;
+	
+	overflow: hidden;
+	
+}
+
+html, body, input
+{
+	font-family: 'Roboto Condensed';
+	font-size: 18px;
+	line-height: 22px;
+}
+
+h1
+{
+	font-weight: normal;
+	font-size: 32px;
+	line-height: 38px;
+
+	margin: 0px;
+	margin-top: 3px;
+	margin-bottom: 15px;
+	padding: 0px;
+	
+}
+
+a
+{
+	color: #999;	
+}
+
+#myCanvasTable
+{
+	display: table;
+	width: 100%;
+	height: 100%;
+	
+}
+
+#myCanvasTr
+{
+	display: table-row;
+}
+
+#myCanvasTd
+{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+	width: 100%;
+	max-width: 1400px;
+		
+}
+
+
+#myCanvas
+{
+	background-color: #111;
+
+	width: 100%;
+	max-width: 1400px;
+
+	-webkit-tap-highlight-color:rgba(0,0,0,0); 
+
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+}
+
+#my_preloader
+{
+	position: absolute;
+	display: table;
+	
+	background-color: #111;
+
+	width: 100%;
+
+	height: 100%;
+}
+
+#my_preloader_tr
+{
+	display: table-row;
+}
+
+#my_preloader_td
+{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	
+	color: #aaaaaa;
+}
+
+#my_preloader_playbutton
+{
+	display: none;
+}
+
+#my_preloader_playbutton img
+{
+	width: 200px;
+	height: 200px;
+}
+
+#my_preloader_titel
+{
+	font-size: 22px;
+	
+	margin-bottom: 20px;
+}
+
+#my_preloader_message
+{
+	font-size: 11px;
+	color: #FFFFFF;
+}
+
+#my_preloader_area
+{
+	display: inline-block;
+
+	width: 300px;
+	height: 1px;
+
+	margin-top: 5px;
+	margin-bottom: 35px;
+	border: 1px solid #333;
+	
+	background-color: #000;
+}
+
+#my_preloader_bar
+{
+	background-color: #feb114;
+	width: 1px;
+	height: 1px;
+}
+
+#my_preloader_gamedesign
+{
+	opacity: 0.5;
+}
+
+#debug_panel
+{
+	position: absolute;
+	display: none;
+	bottom: 0px;
+	padding: 5px;
+
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+}

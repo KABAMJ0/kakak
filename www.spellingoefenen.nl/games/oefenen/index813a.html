@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.spellingoefenen.nl/games/oefenen/index.html?gameType=oefenen by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 03 Nov 2024 13:09:46 GMT -->
+<head>
+	
+	<!-- *** Copyright Gamedesign.nl - All rights reserved *** -->
+
+	<meta http-equiv="content-type" content="text/html; charset=UTF8">
+	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+
+	<meta property="og:title" content="Oefenen" > 
+	<meta property="og:description" content="Spelling oefenen!" > 
+	
+
+	<title>Oefenen</title>
+
+	<link rel='stylesheet' type='text/css' href='../../../js.spellingoefenen.nl/spellingoefenen/games/global/styles/old_game.css'>
+	<link rel='stylesheet' type='text/css' href='../../../js.spellingoefenen.nl/spellingoefenen/games/styles/wl.css'>
+
+	<script> versionHTML = "v2.20.1"; </script>
+	
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/global/javascript/jquery.min.js" type="text/javascript"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/oefenen/javascript/stats.js"></script>
+    
+    <!--
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+	<script src="../FirebaseTeller.js"></script>
+	-->
+	
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/lijn3.js"></script>
+    <script src="../../../js.spellingoefenen.nl/spellingoefenen/games/veiliglerenlezen.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/taalactief3.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/taalactief4.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/taaljournaal.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/taalopmaat.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/taalverhaal.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/staal.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/spellinginbeeld.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/spellinginbeeld2.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/taalfontein.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/tijdvoortaal.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/taalverhaalnu.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/allesineen.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/CAT.js"></script>	
+		
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/oefenen/javascript/game_global.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/oefenen/javascript/game.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/oefenen/javascript/game_ani.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/oefenen/javascript/game_init.js"></script>
+	<script src="../../../js.spellingoefenen.nl/spellingoefenen/games/woordenlijsten.js"></script>
+	
+	
+	<script>//cookies eerder gekozen opties ophalen
+
+	groep = getCookie('groep'); // 4
+	categorie = getCookie('categorie') // WOORDPAKKET
+	methode = getCookie('methode') // Taaljournaal
+	paketten = getCookie('paketten') // TJ.4.1
+
+
+
+	// *** Test settings
+	/*
+	selectGroepWL(4);
+	selectCatWL("WOORDPAKKET");
+	selectMethode("Taaljournaal");
+	selectWL("TJ.4.1");
+
+	setTimeout(function(){ startWL(); }, 1500);
+	*/
+
+	</script>
+	
+</head>
+<body onload='bodyLoaded();'>
+
+<!-- Woordenlijst -->
+<div id='wl'>
+<div id='wl_tr'>
+
+	<div id='wl_td'>
+	<div id='wl_td_div'>
+
+		<div id='wl_logosimpel'>
+	
+			<img id = 'wl_logo_img'>
+
+		</div>	
+
+		<div id='wl_groep'>
+        
+<div>Kies je <label id="groepofleerjaar">groep</label>:</div>
+		
+			<a href='javascript: selectGroepWL(3); void(0);' id='wl_groep_3' class='wl_groep_button'><label id="groepvier">3</label></a>
+			<a href='javascript: selectGroepWL(4); void(0);' id='wl_groep_4' class='wl_groep_button'><label id="groepvier">4</label></a>
+			<a href='javascript: selectGroepWL(5); void(0);' id='wl_groep_5' class='wl_groep_button'><label id="groepvijf">5</label></a>
+			<a href='javascript: selectGroepWL(6); void(0);' id='wl_groep_6' class='wl_groep_button'><label id="groepzes">6</label></a>
+			<a href='javascript: selectGroepWL(7); void(0);' id='wl_groep_7' class='wl_groep_button'><label id="groepzeven">7</label></a>
+			<a href='javascript: selectGroepWL(8); void(0);' id='wl_groep_8' class='wl_groep_button'><label id="groepacht">8</label></a>
+	
+		</div>
+	
+		<div id='wl_cat'>
+		
+			<div>Wat wil je oefenen?</div>
+
+			<a href='javascript: selectCatWL("WOORDPAKKET"); void(0);' id='wl_cat_1' class='wl_button'>Woordpakket</a>
+			<a href='javascript: selectCatWL("SPELLINGSCATEGORIE"); void(0);' id='wl_cat_2' class='wl_button'>Spellingcategorie</a>
+			<a href='javascript: selectCatWL("ALLES"); void(0);' id='wl_cat_3' class='wl_button'>Alles</a>
+	
+		</div>
+	
+		<div id='wl_woordenlijsten'>
+		
+			<a href='javascript: selectWL("W4.2"); void(0);' id='woordenlijst_W4.2'>Methode Taalfontein, leseenheid 1</a>
+	
+	
+		</div>
+	
+		<div id='wl_start'>
+		
+			<a href='javascript: startWL(); void(0);' class='wl_start_button'>Start</a>
+	
+		</div>
+
+	</div>
+	</div>
+
+</div>
+</div>
+<!-- *** Submit to highscore form *** -->
+<div id='popup_submit_highscore' class='popup' style='display: none;'>
+<div class='popup_tr'>
+
+	<div class='popup_td'>
+	<div class='popup_div'>
+
+		<script>
+
+		function highscoreFormCheck()
+		{
+			error = "";
+
+			if(ge("submit_highscore_naam").value.length < 5) error += "- Naam moet minstens 5 karakters zijn (is nu " + ge("submit_highscore_naam").value.length + " karakters)\n";
+			if(ge("submit_highscore_naam").value.length > 25) error += "- Naam mag hoogstens 25 karakters zijn (is nu " + ge("submit_highscore_naam").value.length + " karakters)\n";
+			if(hasCurseword(ge("submit_highscore_naam").value)) error += "- Naam heeft woorden die niet zijn toegestaan!\n";
+
+			if(!validateEmail(ge("submit_highscore_email").value)) error += "- Het e-mail adres is geen geldig e-mail adres!\n";
+
+			if(document.getElementById("submit_highscore_algemene_voorwaarden")) { if(!ge("submit_highscore_algemene_voorwaarden").checked) error += "- Je bent nog niet akkoord gegaan met de algemene voorwaarden!\n"; }			
+
+			if(error == "")
+			{
+				hideMe("popup_submit_highscore");
+				showMe("popup_share");
+
+				tempEmail = getCookie("highscore_email");
+				if(typeof tempEmail === "undefined") tempEmail = "";
+				if(tempEmail != "") revealContinueButton(true);
+			}
+			else
+			{
+				alert("Het volgende is nog niet juist:\n\n" + error);
+			}
+		}
+
+		</script>
+
+		<a href='javascript: hideMe("popup_submit_highscore"); void(0);' class='popup_x'></a>
+
+		<h1>Plaats jezelf op de highscore lijst!</h1>
+
+		<div class='form_spacer'></div>
+
+		<div class='form_input'><div ontouchstart='ge("submit_highscore_naam").focus();' onclick='ge("submit_highscore_naam").focus();'>Naam:</div><div><input type='text' id='submit_highscore_naam' name='submit_highscore_naam' value=''></div></div>
+		<div class='form_input'><div ontouchstart='ge("submit_highscore_email").focus();' onclick='ge("submit_highscore_email").focus();'>E-mail:</div><div><input type='email' id='submit_highscore_email' name='submit_highscore_email' value=''></div></div>
+
+		<label class='form_label'><input type='checkbox' name='submit_highscore_algemene_voorwaarden' id='submit_highscore_algemene_voorwaarden' value='1'> Ik ga akkoord met de <a href='../../algemene_voorwaarden.html' target='_blank'>algemene voorwaarden</a></label>
+		<label class='form_label'><input type='checkbox' name='submit_highscore_nieuwsbrief' id='submit_highscore_nieuwsbrief' value='1'> Ik meld mij aan voor de nieuwsbrief</label>
+
+		<div class='form_spacer'></div>
+
+		<a href='javascript: highscoreFormCheck(); void(0);' class='button'>doorgaan</a>
+
+	</div>
+	</div>
+
+</div>
+</div>
+
+
+
+<script>
+
+			
+document.getElementById("wl_logo_img").src = "https://afbeeldingen.spellingoefenen.nl/oefenen/images/" + gameType + "/logo.png";
+	
+
+</script>
+
+	
+
+
+
+<!-- *** Preloader *** -->
+<div id='my_preloader'>
+<div id='my_preloader_tr'>
+
+	<div id='my_preloader_td'>
+
+		<div id='my_preloader_playbutton'><a href='javascript: loadManifest(); void(0);'><img src='../../../afbeeldingen.spellingoefenen.nl/spelling_oefenen/global/ui/button_play.png'></a></div>
+		<div id='my_preloader_titel'>Preloading game <br><br> Wordt het spel niet geladen? Probeer ctrl + shift + r of ctrl + f5</div>
+		<div id='my_preloader_message'>Wordt het programma niet geladen? Probeer ctrl + shift + r of ctrl + f5</div>
+		<div id='my_preloader_area'><div id='my_preloader_bar'></div></div><br>
+		<div id='my_preloader_gamedesign'><a href='http://www.gamedesign.nl/' target='_blank'><img src='../../../afbeeldingen.spellingoefenen.nl/spelling_oefenen/global/ui/gamedesign.png' width='200' height='20'></a></div>
+
+	</div>
+
+</div>
+</div>
+<!-- *** /Preloader *** -->
+
+
+
+<!-- *** Canvas *** -->
+<div id='myCanvasTable'><div id='myCanvasTr'><div id='myCanvasTd'><canvas id="myCanvas" width="1400" height="700"></canvas></div></div></div>
+
+<script>
+
+// *** Init Woordenlijst
+klas_wachtwoord = getParameterByName("klas_wachtwoord"); 	if(typeof klas_wachtwoord === "undefined" || klas_wachtwoord == null) klas_wachtwoord = "";
+taak = getParameterByName("taak"); 				if(typeof taak === "undefined" || taak == null) taak = "";
+leerling = getParameterByName("leerling"); 			if(typeof leerling === "undefined" || leerling == null) leerling = "";
+taakNaam = getParameterByName("taakNaam"); 			if(typeof taakNaam === "undefined" || taakNaam == null || taakNaam == "") taakNaam = "leerkracht";
+voortgang = 0;
+pogingen = new Array();
+
+initWL();
+
+// *** Todo:
+// *** index.html > initWL() gebruiken ipv andere initialisatiemethode in overige games (kan ik doen)
+// *** game.js > ajaxReturn > getTaak toevoegen (lijkt voor veel spellen centraal geregeld in /games/game_global.js) (kan ik doen)
+// *** game_comm.php > getTaak en progressTaak toevoegen in overige games (kan ik doen)
+// *** game.js > nextWord() > Hier is een AJAX call toegevoegd die getypte antwoorden en voortgang terugstuurt (ter info)
+// *** game.js > nextWord() > Ontbreekt poging_3 (attempt 3)? Ik krijg deze niet te pakken!
+// *** De globale variabele voortgang is beschikbaar zodat men kan doorgaan waar men was gebleven (uit _VOORTGANG_ in de database).
+
+
+var canvas = document.getElementById("myCanvas");
+var context = canvas.getContext("2d");
+
+
+$(document).ready(function(){
+	
+	// *** Click
+	canvas.addEventListener("click", function(event) { click(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop); }, false);
+	canvas.addEventListener("touchend", function(event) { endDrag(); }, false);
+	
+	// *** Move mouse
+	canvas.addEventListener("mousemove", function(event) { getMousePos(canvas, event); }, false);
+	canvas.addEventListener("touchmove", function(event) { if((typeof game["status"] !== "undefined" && game["status"] != "INTRO") || gameEngine["iPhoneScrollCheck"]) { event.preventDefault(); getMousePos(canvas, event); } }, false);
+	document.getElementById("turn_phone").addEventListener("touchmove", function(event) { event.preventDefault(); }, false);
+	
+	// *** Drag
+	canvas.addEventListener("mousedown",  function(event) { startDrag(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop); }, false);
+	canvas.addEventListener("touchstart", function(event) { var touch = event.touches[0] || event.changedTouches[0]; startDrag(touch.pageX - canvas.offsetLeft, touch.pageY - canvas.offsetTop); }, false);
+	
+	// *** Doubleclick
+	canvas.addEventListener("dblclick", function(event) { event.preventDefault(); }, false);
+	//canvas.addEventListener("dblclick", function(event) { doubleClick(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop); }, false);
+
+	// *** Scrolling
+	window.onscroll = function() { deviceChecksScrolling(); };
+
+	// *** Keypresses
+	document.onkeydown = keyPress; // *** See haaifivegame for better solution and touch wheel functionality
+	
+	
+});
+
+</script>
+
+<a href='javascript: toggleFullScreen(); ge("fullscreen_phone").style.display = "none"; void(0);' id='fullscreen_phone'><div id='fullscreen_phone_tr'><div id='fullscreen_phone_td'><div id='fullscreen_phone_icon'></div>Druk hier en speel in volledig scherm<br>voor het beste resultaat!</div></div></a>
+<a href='javascript: ge("turn_phone").style.display = "none"; void(0);' id='turn_phone'><div id='turn_phone_tr'><div id='turn_phone_td'><div id='turn_phone_icon'></div>Draai je telefoon voor<br>een beter resultaat!</div></div></a>
+<a href='javascript: void(0);' id='scroll_phone'><div id='scroll_phone_tr'><div id='scroll_phone_td'><img src='../../../afbeeldingen.spellingoefenen.nl/spelling_oefenen/global/ui/scroll_phone.gif' id='scroll_phone_icon'><img src='../../../afbeeldingen.spellingoefenen.nl/spelling_oefenen/global/ui/scroll_phone_peace.gif' style='width: 1px; height: 1px;'><br>Schuif mij omhoog!</div></div></a>
+<!-- *** /Canvas *** -->
+
+</body>
+
+<!-- Mirrored from www.spellingoefenen.nl/games/oefenen/index.html?gameType=oefenen by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 03 Nov 2024 13:09:50 GMT -->
+</html>

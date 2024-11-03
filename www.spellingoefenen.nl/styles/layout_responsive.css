@@ -1,0 +1,538 @@
+	
+	@media only screen and (max-width:1300px) 
+	{
+		.verticalads{display:none;}
+		
+		.gameSelectorGame img
+			
+		{
+			width: 193px;
+			height: 133px;
+			
+		}
+		.footerads
+		{
+				display: block;
+		}
+			
+	}
+
+
+	/* *** Tablets in portrait & smartphones *** */
+	@media only screen and (max-width:1000px) 
+	{
+			
+	
+		.centering { width: 100%; }	
+		
+		.text-bar .role a.foto { display: block; float: none; }
+		.text-bar .role .text { display: block; padding: 30px 0 0px 20px; float: none; width: auto; }
+		
+		.banner-bar .banner
+		{
+			width: auto;
+		}
+	
+		.banner-bar .banner .left
+		{
+			display: block;
+			float: none;
+			max-width: 100%;
+			width: auto; 
+		}
+
+		.banner-bar .banner .left h2
+		{
+			max-width: 80% !important;
+		}
+				
+		.banner-bar .banner .right
+		{
+			display: block;
+			float: none;
+			
+			margin-left: 20px !important;
+			margin-top: 40px !important;
+		}
+			
+		h1
+		{
+			font-size: 22px;
+			line-height: 30px;
+		}
+
+		.header
+		{		
+			height: auto;
+			padding-top: 10px;			
+		}
+				
+		.logo
+		{
+			display: block;
+			
+			background-image: url('../../afbeeldingen.spellingoefenen.nl/spelling_oefenen/layout/layout/logo_smart.png'); background-repeat: no-repeat; background-position: left top;
+			
+			width: 320px;
+			height: 77px;
+			
+			padding: 0px;
+			margin: 0px auto;
+		}
+			
+		.menu
+		{
+			display: block;
+			
+			float: none;
+			
+			margin-top: 0px;
+			margin: 0px auto;
+			
+			padding-top: 20px;
+			padding-bottom: 20px;
+			
+			text-align: center;
+		}	
+
+		.form_input, .form_textarea
+		{
+			width: 95%;
+			
+		}
+		
+		.contactformulier
+		{
+			width: 95%;	
+		}
+	
+		.youtube
+		{
+			padding: 10px;
+		}		
+		
+		.youtube_iframe
+		{
+			width: 100% !important;
+			height: 225px !important;
+			
+			margin-bottom: 10px;
+		}
+
+		.leader_banner
+		{
+			height: auto;
+		}
+		
+		.footer
+		{
+			
+			background-size: 930px 459px;
+			padding-top: 0px;
+			
+		}
+			
+		.footer_div
+		{	
+			padding-top: 150px;
+			padding-bottom: 0px;
+		}
+		
+		.verticalads{
+			display:none;
+		}
+		
+		.gameSelectorGame img
+			
+		{
+			width: 193px;
+			height: 133px;
+			
+		}
+		
+		.footerads
+		{
+				display: block;
+		}
+			
+
+		
+	}		
+	
+		/* *** Tablets in portrait *** */
+		@media only screen and (min-width:750px) and (max-width:1000px) 
+		{
+			.header_div, .leader_div, .main_div, .main_cols_table, .main_drieluik_table, .footer_div
+			{
+				width: 730px;
+			}
+			
+			#enters{height:20px;}
+				
+			.youtube_iframe
+			{	
+				width: 345px; 
+				height: 250px; 	
+			}
+			
+				
+			.leader_games
+			{
+				min-height: 250px;
+			}
+						
+			.leader_game, .leader_game:visited
+			{
+				background-size: 230px 159px;
+				
+				width: 230px;
+				height: 159px;
+				
+				margin-left: 20px;			
+			}
+			
+			.leader_ads, .leader_ads:visited
+			{
+				background-size: 230px 159px;
+				
+				width: 230px;
+				height: 159px;
+				
+				margin-left: 20px;			
+			}
+			
+			.googleadresponsive
+			{
+			width:230px;
+			height:159px;
+			}
+			
+			.leader_game:nth-child(3n - 2), .leader_ads:nth-child(3n - 2)
+			{
+				margin-left: 0px;
+			}
+			
+
+			.leader_banner
+			{
+				padding-bottom: 20px;
+			}
+						
+			.banner_landscape
+			{
+				max-width: 730px;
+			}
+			
+			
+			.main_drieluik_td
+			{
+				width: 230px;
+				padding-left: 20px;
+			
+			}
+
+			.main_col_content
+			{
+				padding-right: 20px;
+			}	
+			
+			.verticalads{
+			display:none;
+			}
+			
+			.footerads
+			{
+			display: block;
+			}
+			
+			
+			
+		
+				
+		}
+		
+
+		
+			/* *** Smartphones *** */			
+			@media only screen and (max-width:749px)
+			{
+
+.dashboard_taak_td, .dashboard_taak_progress, .dashboard_taak_details
+{
+	display: block;
+}
+
+.dashboard_taak_progress
+{
+	margin-bottom: 10px;
+}
+
+.dashboard_titel_date
+{
+	display: block;
+	float: none !important;
+	font-size: 14px;
+	padding-bottom: 5px;
+}
+
+.dashboard
+{
+	padding: 12px;
+	margin-bottom: 20px;
+}
+
+.dashboard_wachtwoord
+{
+	font-size: 20px;
+	line-height: 26px;
+}
+
+.form_taken_scroll
+{
+	max-width: 100%;
+	overflow: auto;
+}
+
+.reg_form_td1
+{
+	width: auto;
+	height: auto; 
+	display: inline-block;
+}
+
+.reg_form_td2
+{
+	width: auto;
+	height: auto; 
+	display: inline-block;
+}			
+				.header_div, .leader_div, .main_div, .main_cols_table, .main_drieluik_table, .footer_div
+				{
+					/* background-color: #F00; */
+					
+					display: block;
+					max-width: 97%;
+					width: 97%;
+				}
+			
+				.leader_div iframe
+				{
+					display: none;	
+				}
+			
+				
+				.leader_fullscreen, .leader_fullscreen:visited, .leader_fullscreen:active, .leader_fullscreen:hover
+				{
+					display: block;
+					font-size: 12px;
+				}
+			
+				.leader_fullscreen_a, .leader_fullscreen_a:visited, .leader_fullscreen_a:active, .leader_fullscreen_a:hover
+				{
+					background-image: url('../../afbeeldingen.spellingoefenen.nl/spelling_oefenen/global/wl/wl_start_button.png'); background-repeat: no-repeat; background-position: left top;
+			
+					display: block;
+					margin: 0px auto;
+					margin-bottom: 10px;
+					margin-top: 20px;
+			
+					width: 141px;
+					height: 75px;
+			
+				
+					font-family: 'Gloria Hallelujah', cursive;
+					font-size: 27px;
+					line-height: 60px;
+					
+					text-align: center;
+					text-decoration: none;
+					text-transform: lowercase;
+					text-shadow: 0px -1px 2px rgba(0, 0, 0, 0.85);
+					 
+					color: #FFFFFF;
+			
+				}
+			
+				.leader_fullscreen_a:active, .leader_fullscreen_a:hover
+				{
+					background-image: url('../../afbeeldingen.spellingoefenen.nl/spelling_oefenen/global/wl/wl_start_button2.png');
+			
+				}
+								
+				.leader_div iframe
+				{
+					border-width: 4px 4px 4px 4px;	
+					-webkit-box-shadow: 0px 0px 4px 0px rgba(2,2,2,2);
+					-moz-box-shadow: 0px 0px 4px 0px rgba(2,2,2,2);
+					-box-shadow: 0px 0px 4px 0px rgba(2,2,2,2);		
+				}
+				
+				#enters{height:20px;}
+				
+								
+				.youtube_iframe
+				{	
+					width: 100%; 
+					height: 200px;
+				}
+
+	
+				.banner_landscape, .banner_landscape a, .banner_landscape a img
+				{
+					max-width: 100%;
+					height: auto;
+				}
+								
+				.leader_games
+				{
+					text-align: center;
+				}
+				
+				.leader_game, .leader_game:nth-child(3n - 2)
+				{
+					
+					display: block;
+					
+					margin: 0px auto;
+					margin-bottom: 20px;
+				}
+								
+				.leader_game:active, .leader_game:hover
+				{
+					margin-top: 0px;
+				}
+				
+				.main
+				{
+					margin: 0px;
+					padding: 20px;
+				}
+				
+				.main_drieluik_table, .main_drieluik_tr, .main_drieluik_td,
+				.main_cols_table, .main_cols_tr, .main_col_content, .main_col_sidebar
+				{
+					display: block;
+					width: auto;
+
+
+					margin-bottom: 0px;					
+					padding: 0px;
+					
+				}
+
+				.main_drieluik_td, .main_col_content
+				{
+					padding-bottom: 30px;
+				}
+
+				.website_game img
+				{
+					float: none;
+					display: block;
+					
+					margin-bottom: 20px;
+				
+				}
+								
+				.footer
+				{
+					padding-left: 20px;
+					padding-right: 20px;
+				}
+				
+				.footer_gamedesign, .footer_gamedesign:visited
+				{
+				
+					display:none;
+					width: 0px;
+					height: 0px;
+	
+				}
+				
+				.verticalads{
+				display:none;
+				}
+				
+				.footerads
+				{
+				display: block;
+				}
+			
+			}
+			
+			/* *** /Smartphones *** */	
+
+	
+				/* *** Zeer kleine smartphones: kleine correcties voor optimale view *** */			
+				@media only screen and (max-width:640px)
+				{	
+					.leerling, .leerling:hover, .leerling:active
+					{
+						max-width: 90%;
+						height: auto;
+					}
+					
+					.leerling *, .leerling:hover *, .leerling:active *
+					{
+						width: auto !important;
+						min-width: auto !important;
+						height: auto;
+						line-height: 30px;
+					}
+					
+				}
+				
+					
+				/* *** Zeer kleine smartphones: kleine correcties voor optimale view *** */			
+				@media only screen and (max-width:370px)
+				{		
+					
+					#enters{height:20px;}
+						
+					.form_input, .form_textarea, .captcha
+					{
+						width: 250px;
+					}
+					
+					.form_input_kort
+					{
+						width: 74px;	
+					}		
+	
+					.form_input, .form_select, .form_textarea, .form_input_captcha
+					{
+						font-size: 16px;
+						line-height: 20px;
+					}
+						
+					.website_game img, .banner_block
+					{
+						margin-left: -15px;
+						margin-right: -15px;
+					}
+					
+			
+					.logo
+					{
+						width: 100%;
+					}	
+					
+					.verticalads{
+						display:none;
+					}
+					
+					.footerads
+					{
+						display: block;
+					}
+			
+				}
+				
+				
+
+
+@media only screen and (min-width:736px) and (max-width:979px) { .game_iframe { height: 450px; } }
+@media only screen and (min-width:472px) and (max-width:735px) { .game_iframe { height: 288px; } }
+@media only screen and (min-width:1px) and (max-width:471px) { .game_iframe { height: 192px;  } }
+
+							
